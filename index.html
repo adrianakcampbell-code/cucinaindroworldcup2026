@@ -531,6 +531,28 @@
   }
 
 
+
+  /* ── SBS Highlights link ── */
+  .cf-hl-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #c4192c;
+    border-radius: 2px;
+    padding: 2px 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .cf-hl-link:hover { background: #e01f35; }
+  .cf-hl-link svg { flex-shrink: 0; }
+
 </style>
 </head>
 <body>
@@ -568,7 +590,7 @@
 <div class="tabs">
   <div class="tab active" onclick="showTab('schedule',this)">📅 Schedule</div>
   <div class="tab" onclick="showTab('groups',this)">📊 Group Tables</div>
-  <div class="tab" onclick="showTab('centrefold',this)">📰 Centrefold</div>
+  <div class="tab" onclick="showTab('centrefold',this)">🎬 Results & Highlights</div>
   <div class="tab" onclick="showTab('wallchart',this)">📌 Wall Chart</div>
 </div>
 
@@ -1038,12 +1060,16 @@ function showTab(id, el) {
         <div class="cf-match-row"><span class="cf-tn w">Mexico</span><div class="cf-sc"><span class="cf-score">2–0</span></div><span class="cf-tn r">South Africa</span></div>
         <div class="cf-detail">⚽ Quiñones 9' · Jiménez 67'</div>
         <div class="cf-cards"><span class="cf-rc">■ Montes (MEX)</span> · <span class="cf-rc">■ Sithole · Zwane (RSA)</span></div>
+      
+        <a class="cf-hl-link" href="https://www.youtube.com/watch?v=iaqc6YD6Ge8" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a>
       </div>
       <div class="cf-match">
         <div class="cf-match-date">Fri 12 Jun · 12:00pm <span class="cf-result-badge">FT</span></div>
         <div class="cf-match-row"><span class="cf-tn w">Korea Rep.</span><div class="cf-sc"><span class="cf-score">2–1</span></div><span class="cf-tn r">Czechia</span></div>
         <div class="cf-detail">⚽ Hwang 57' · Oh 79' / Krejčí 42'</div>
         <div class="cf-cards"><span class="cf-yc">▪ Lee Gi-hyuk (KOR)</span></div>
+      
+        <a class="cf-hl-link" href="https://www.youtube.com/watch?v=Wb56UP6-t-E" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a>
       </div>
       <div class="cf-match">
         <div class="cf-match-date">Fri 19 Jun · 2:00am</div>
@@ -1085,12 +1111,16 @@ function showTab(id, el) {
         <div class="cf-match-row"><span class="cf-tn">Canada</span><div class="cf-sc"><span class="cf-score">1–1</span></div><span class="cf-tn r">Bosnia-Herz.</span></div>
         <div class="cf-detail">⚽ Larin 78' / Lukić 21'</div>
         <div class="cf-cards"><span class="cf-yc">▪ Johnston · De Fougerolles (CAN)</span> · <span class="cf-yc">▪ Demirović · Lukić · Katić (BIH)</span></div>
+      
+        <a class="cf-hl-link" href="https://www.youtube.com/watch?v=DQ7I2jGmo-s" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a>
       </div>
       <div class="cf-match">
         <div class="cf-match-date">Sun 14 Jun · 5:00am <span class="cf-result-badge">FT</span></div>
         <div class="cf-match-row"><span class="cf-tn">Qatar</span><div class="cf-sc"><span class="cf-score">1–1</span></div><span class="cf-tn r">Switzerland</span></div>
         <div class="cf-detail">⚽ Khoukhi 90+5' / ⚽P Embolo 17' (pen)</div>
         <div class="cf-cards"><span class="cf-yc">▪ Zakaria (SUI) 42'</span> · ⭐ Qatar's 1st WC point ever</div>
+      
+        <a class="cf-hl-link" href="https://www.sbs.com.au/sport/video/fifa-world-cup-2026-highlights-qatar-v-switzerland-group-b/lwgdn2kbx" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a>
       </div>
       <div class="cf-match">
         <div class="cf-match-date">Fri 19 Jun · 5:00am</div>
@@ -1183,6 +1213,8 @@ function showTab(id, el) {
         <div class="cf-match-date">Sat 20 Jun · 5:00am</div>
         <div class="cf-match-row"><span class="cf-tn">USA</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Australia 🦘</span></div>
         <div class="cf-detail">Lumen Field, Seattle · SBS</div>
+      
+        <a class="cf-hl-link" href="https://www.youtube.com/watch?v=1j9TtrQYq3w" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a>
       </div>
       <div class="cf-match">
         <div class="cf-match-date">Sat 20 Jun · 1:00pm</div>
