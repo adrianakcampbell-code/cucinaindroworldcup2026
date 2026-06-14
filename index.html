@@ -553,6 +553,54 @@
   .cf-hl-link:hover { background: #e01f35; }
   .cf-hl-link svg { flex-shrink: 0; }
 
+
+  /* ── ACCORDION DAYS ── */
+  .day-section.collapsible .day-header {
+    cursor: pointer;
+    user-select: none;
+  }
+  .day-section.collapsible .day-header:hover { border-bottom-color: rgba(201,168,76,0.6); }
+  .day-toggle {
+    margin-left: auto;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .day-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-size: 10px;
+  }
+  .day-section.collapsible.collapsed .day-toggle .arrow { transform: rotate(-90deg); }
+  .day-section.collapsible .grid {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 2000px;
+    opacity: 1;
+  }
+  .day-section.collapsible.collapsed .grid {
+    max-height: 0 !important;
+    opacity: 0;
+  }
+  .day-section.collapsible .day-header .day-note { display: none; }
+  .day-completed-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(46,160,80,0.2);
+    border: 1px solid rgba(46,160,80,0.4);
+    color: #4ede9a;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
 </style>
 </head>
 <body>
@@ -601,11 +649,12 @@
 <div class="content">
 
 <!-- DAY 1 · FRI 12 JUN QLD -->
-<div class="day-section">
+<div class="day-section collapsible collapsed">
   <div class="day-header">
     <div class="day-label">Day 1</div>
     <div class="day-date">Friday 12 June 2026</div>
-    <div class="day-note">2 matches · 3🟥 historic</div>
+    <span class="day-completed-badge">✓ Complete</span>
+    <div class="day-toggle" onclick="toggleDay(this)"><span>2 results</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
     <div class="card result">
@@ -646,7 +695,7 @@
 </div>
 
 <!-- DAY 2 · SAT 13 JUN QLD -->
-<div class="day-section">
+<div class="day-section collapsible collapsed">
   <div class="day-header">
     <div class="day-label">Day 2</div>
     <div class="day-date">Saturday 13 June 2026</div>
@@ -691,12 +740,12 @@
 </div>
 
 <!-- DAY 3 · SUN 14 JUN QLD -->
-<div class="day-section">
+<div class="day-section collapsible collapsed">
   <div class="day-header">
     <div class="day-label">Day 3</div>
     <div class="day-date">Sunday 14 June 2026</div>
-    <div class="today-pill">TODAY</div>
-    <div class="day-note">4 matches · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland · 🦘 Socceroos</div>
+    <span class="day-completed-badge">✓ Complete</span>
+    <div class="day-toggle" onclick="toggleDay(this)"><span>4 results · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 🦘</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
     <div class="card result">
@@ -771,11 +820,11 @@
 </div>
 
 <!-- DAY 4 · MON 15 JUN QLD -->
-<div class="day-section">
+<div class="day-section collapsible">
   <div class="day-header">
     <div class="day-label">Day 4</div>
     <div class="day-date">Monday 15 June 2026</div>
-    <div class="day-note">4 matches · 🇸🇪 Sweden</div>
+    <div class="day-toggle" onclick="toggleDay(this)"><span>4 matches · 🇸🇪 Sweden</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E</span></div><div class="cbody"><div class="team"><span class="tf">🇩🇪</span><div class="tn">Germany</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">3:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇼</span><div class="tn">Curaçao</div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
@@ -786,11 +835,11 @@
 </div>
 
 <!-- DAY 5 · TUE 16 JUN QLD -->
-<div class="day-section">
+<div class="day-section collapsible">
   <div class="day-header">
     <div class="day-label">Day 5</div>
     <div class="day-date">Tuesday 16 June 2026</div>
-    <div class="day-note">4 matches</div>
+    <div class="day-toggle" onclick="toggleDay(this)"><span>4 matches</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇸</span><div class="tn">Spain</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇻</span><div class="tn">Cape Verde</div></div></div><div class="cfoot">📍 Mercedes-Benz Stadium, Atlanta</div></div>
@@ -800,7 +849,7 @@
   </div>
 </div>
 
-<!-- DAY 6 · TUE 17 JUN QLD -->
+<!-- DAY 6 · WED 17 JUN QLD -->
 <div class="day-section">
   <div class="day-header">
     <div class="day-label">Day 6</div>
@@ -828,24 +877,165 @@
   </div>
 </div>
 
-<!-- MD 2 & 3 KEY FIXTURES -->
-<div class="day-section">
-  <div class="day-header">
-    <div class="day-label">MD 2 &amp; 3</div>
-    <div class="day-date">Thu 19 Jun – Sat 27 Jun 2026</div>
-    <div class="day-note">Key fixtures shown</div>
+
+<!-- DAY 8 · FRI 19 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 8</div>
+    <div class="day-date">Friday 19 June 2026</div>
+    <div class="day-toggle"><span>4 matches · Groups A &amp; B</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP A · MD2</span><span>Fri 19 Jun · 2:00am</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇿</span><div class="tn">Czechia</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇿🇦</span><div class="tn">South Africa</div></div></div><div class="cfoot">📍 Mercedes-Benz Stadium, Atlanta · ⚠️ Sithole & Zwane (RSA) suspended</div></div>
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP A · MD2</span><span>Fri 19 Jun · 5:00am</span></div><div class="cbody"><div class="team"><span class="tf">🇲🇽</span><div class="tn">Mexico</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">1:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇰🇷</span><div class="tn">Korea Republic</div></div></div><div class="cfoot">📍 Estadio Akron, Guadalajara · ⚠️ Montes (MEX) suspended</div></div>
-    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD2</span><span>Sat 20 Jun · 2:00am</span></div><div class="cbody"><div class="team"><span class="tf">🇺🇸</span><div class="tn">USA</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇺</span><div class="tn">Australia <span class="tbadge tb-aus">🦘</span></div></div></div><div class="cfoot">📍 Lumen Field, Seattle · SBS</div></div>
-    <div class="card upcoming hl-swe"><div class="ctop"><span class="gt">GROUP F · MD2</span><span>Sun 21 Jun · 3:00am</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇱</span><div class="tn">Netherlands</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">3:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇪</span><div class="tn">Sweden <span class="tbadge tb-swe">SWE</span></div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
-    <div class="card upcoming hl-sco"><div class="ctop"><span class="gt">GROUP C · MD2</span><span>Sat 20 Jun · 5:00am</span></div><div class="cbody"><div class="team"><span class="tf">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div class="tn">Scotland <span class="tbadge tb-sco">SCO</span></div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇲🇦</span><div class="tn">Morocco</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston</div></div>
-    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD3</span><span>Fri 26 Jun · 2:00am</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇾</span><div class="tn">Paraguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">12:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇺</span><div class="tn">Australia <span class="tbadge tb-aus">🦘</span></div></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara · SBS</div></div>
-    <div class="card upcoming hl-sco"><div class="ctop"><span class="gt">GROUP C · MD3</span><span>Thu 25 Jun · 8:00am</span></div><div class="cbody"><div class="team"><span class="tf">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div class="tn">Scotland <span class="tbadge tb-sco">SCO</span></div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇧🇷</span><div class="tn">Brazil</div></div></div><div class="cfoot">📍 Hard Rock Stadium, Miami</div></div>
-    <div class="card upcoming hl-swe"><div class="ctop"><span class="gt">GROUP F · MD3</span><span>Fri 26 Jun · 8:00am</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇳</span><div class="tn">Tunisia</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:12px">TBC</div></div><div class="team"><span class="tf">🇸🇪</span><div class="tn">Sweden <span class="tbadge tb-swe">SWE</span></div></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP A · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇿</span><div class="tn">Czechia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇿🇦</span><div class="tn">South Africa</div></div></div><div class="cfoot">📍 Mercedes-Benz Stadium, Atlanta · ⚠️ Sithole &amp; Zwane (RSA) susp.</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP B · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇭</span><div class="tn">Switzerland</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇧🇦</span><div class="tn">Bosnia &amp; Herz.</div></div></div><div class="cfoot">📍 Los Angeles Stadium (SoFi)</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP B · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇦</span><div class="tn">Canada</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇶🇦</span><div class="tn">Qatar</div></div></div><div class="cfoot">📍 BC Place, Vancouver</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP A · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇲🇽</span><div class="tn">Mexico</div></div><div class="sb"><div class="vs">vs</div><div class="kt">11:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇰🇷</span><div class="tn">Korea Republic</div></div></div><div class="cfoot">📍 Estadio Akron, Guadalajara · ⚠️ Montes (MEX) susp.</div></div>
   </div>
 </div>
+
+<!-- DAY 9 · SAT 20 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 9</div>
+    <div class="day-date">Saturday 20 June 2026</div>
+    <div class="day-toggle"><span>4 matches · 🦘 Socceroos · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇺🇸</span><div class="tn">USA</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇺</span><div class="tn">Australia <span class="tbadge tb-aus">🦘</span></div></div></div><div class="cfoot">📍 Lumen Field, Seattle · SBS</div></div>
+    <div class="card upcoming hl-sco"><div class="ctop"><span class="gt">GROUP C · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div class="tn">Scotland <span class="tbadge tb-sco">SCO</span></div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇲🇦</span><div class="tn">Morocco</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston · SBS</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP C · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇧🇷</span><div class="tn">Brazil</div></div><div class="sb"><div class="vs">vs</div><div class="kt">11:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇭🇹</span><div class="tn">Haiti</div></div></div><div class="cfoot">📍 Lincoln Financial Field, Philadelphia</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP D · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇷</span><div class="tn">Türkiye</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇵🇾</span><div class="tn">Paraguay</div></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara</div></div>
+  </div>
+</div>
+
+<!-- DAY 10 · SUN 21 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 10</div>
+    <div class="day-date">Sunday 21 June 2026</div>
+    <div class="day-toggle"><span>4 matches · Groups E &amp; F · 🇸🇪 Sweden</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming hl-swe"><div class="ctop"><span class="gt">GROUP F · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇱</span><div class="tn">Netherlands</div></div><div class="sb"><div class="vs">vs</div><div class="kt">3:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇪</span><div class="tn">Sweden <span class="tbadge tb-swe">SWE</span></div></div></div><div class="cfoot">📍 NRG Stadium, Houston · SBS</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇩🇪</span><div class="tn">Germany</div></div><div class="sb"><div class="vs">vs</div><div class="kt">6:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇮</span><div class="tn">Ivory Coast</div></div></div><div class="cfoot">📍 BMO Field, Toronto</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇨</span><div class="tn">Ecuador</div></div><div class="sb"><div class="vs">vs</div><div class="kt">10:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇼</span><div class="tn">Curaçao</div></div></div><div class="cfoot">📍 Arrowhead Stadium, Kansas City</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP F · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇳</span><div class="tn">Tunisia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">12:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇯🇵</span><div class="tn">Japan</div></div></div><div class="cfoot">📍 Estadio BBVA, Monterrey</div></div>
+  </div>
+</div>
+
+<!-- DAY 11 · MON 22 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 11</div>
+    <div class="day-date">Monday 22 June 2026</div>
+    <div class="day-toggle"><span>4 matches · Groups G &amp; H</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇸</span><div class="tn">Spain</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇦</span><div class="tn">Saudi Arabia</div></div></div><div class="cfoot">📍 Mercedes-Benz Stadium, Atlanta</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇧🇪</span><div class="tn">Belgium</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇷</span><div class="tn">Iran</div></div></div><div class="cfoot">📍 Los Angeles Stadium (SoFi)</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇺🇾</span><div class="tn">Uruguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇻</span><div class="tn">Cape Verde</div></div></div><div class="cfoot">📍 Hard Rock Stadium, Miami</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇿</span><div class="tn">New Zealand</div></div><div class="sb"><div class="vs">vs</div><div class="kt">11:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇪🇬</span><div class="tn">Egypt</div></div></div><div class="cfoot">📍 BC Place, Vancouver</div></div>
+  </div>
+</div>
+
+<!-- DAY 12 · TUE 23 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 12</div>
+    <div class="day-date">Tuesday 23 June 2026</div>
+    <div class="day-toggle"><span>4 matches · Groups I &amp; J</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇫🇷</span><div class="tn">France</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇶</span><div class="tn">Iraq</div></div></div><div class="cfoot">📍 Arrowhead Stadium, Kansas City</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇴</span><div class="tn">Norway</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇳</span><div class="tn">Senegal</div></div></div><div class="cfoot">📍 MetLife Stadium, New Jersey</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP J · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇦🇷</span><div class="tn">Argentina ★</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇹</span><div class="tn">Austria</div></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP J · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇯🇴</span><div class="tn">Jordan</div></div><div class="sb"><div class="vs">vs</div><div class="kt">11:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇩🇿</span><div class="tn">Algeria</div></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara</div></div>
+  </div>
+</div>
+
+<!-- DAY 13 · WED 24 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 13</div>
+    <div class="day-date">Wednesday 24 June 2026</div>
+    <div class="day-toggle"><span>4 matches · Groups K &amp; L</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP K · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇹</span><div class="tn">Portugal</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇺🇿</span><div class="tn">Uzbekistan</div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP K · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇴</span><div class="tn">Colombia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇩</span><div class="tn">DR Congo</div></div></div><div class="cfoot">📍 Estadio Akron, Guadalajara</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP L · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><div class="tn">England</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇬🇭</span><div class="tn">Ghana</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP L · MD2</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇦</span><div class="tn">Panama</div></div><div class="sb"><div class="vs">vs</div><div class="kt">11:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇭🇷</span><div class="tn">Croatia</div></div></div><div class="cfoot">📍 Lincoln Financial Field, Philadelphia</div></div>
+  </div>
+</div>
+
+<!-- DAY 14 · THU 25 JUN QLD — MD3 SIMULTANEOUS KICK-OFFS -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 14</div>
+    <div class="day-date">Thursday 25 June 2026</div>
+    <div class="day-toggle"><span>6 matches · Groups A–C MD3 · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP A · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇿</span><div class="tn">Czechia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇲🇽</span><div class="tn">Mexico</div></div></div><div class="cfoot">📍 Estadio Azteca, Mexico City</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP A · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇿🇦</span><div class="tn">South Africa</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇰🇷</span><div class="tn">Korea Republic</div></div></div><div class="cfoot">📍 Estadio BBVA, Monterrey</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP B · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇭</span><div class="tn">Switzerland</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇦</span><div class="tn">Canada</div></div></div><div class="cfoot">📍 BC Place, Vancouver</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP B · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇧🇦</span><div class="tn">Bosnia &amp; Herz.</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇶🇦</span><div class="tn">Qatar</div></div></div><div class="cfoot">📍 Lumen Field, Seattle</div></div>
+    <div class="card upcoming hl-sco"><div class="ctop"><span class="gt">GROUP C · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div class="tn">Scotland <span class="tbadge tb-sco">SCO</span></div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇧🇷</span><div class="tn">Brazil</div></div></div><div class="cfoot">📍 Hard Rock Stadium, Miami · SBS</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP C · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇲🇦</span><div class="tn">Morocco</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇭🇹</span><div class="tn">Haiti</div></div></div><div class="cfoot">📍 Mercedes-Benz Stadium, Atlanta</div></div>
+  </div>
+</div>
+
+<!-- DAY 15 · FRI 26 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 15</div>
+    <div class="day-date">Friday 26 June 2026</div>
+    <div class="day-toggle"><span>6 matches · Groups D–F MD3 · 🦘 Socceroos · 🇸🇪 Sweden</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇷</span><div class="tn">Türkiye</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇺🇸</span><div class="tn">USA</div></div></div><div class="cfoot">📍 Los Angeles Stadium (SoFi)</div></div>
+    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇾</span><div class="tn">Paraguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇺</span><div class="tn">Australia <span class="tbadge tb-aus">🦘</span></div></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara · SBS</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇼</span><div class="tn">Curaçao</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇮</span><div class="tn">Ivory Coast</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇨</span><div class="tn">Ecuador</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇩🇪</span><div class="tn">Germany</div></div></div><div class="cfoot">📍 MetLife Stadium, New Jersey</div></div>
+    <div class="card upcoming hl-swe"><div class="ctop"><span class="gt">GROUP F · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇯🇵</span><div class="tn">Japan</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇪</span><div class="tn">Sweden <span class="tbadge tb-swe">SWE</span></div></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas · SBS</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP F · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇳</span><div class="tn">Tunisia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇳🇱</span><div class="tn">Netherlands</div></div></div><div class="cfoot">📍 Arrowhead Stadium, Kansas City</div></div>
+  </div>
+</div>
+
+<!-- DAY 16 · SAT 27 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 16</div>
+    <div class="day-date">Saturday 27 June 2026</div>
+    <div class="day-toggle"><span>6 matches · Groups G–I MD3</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇬</span><div class="tn">Egypt</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇷</span><div class="tn">Iran</div></div></div><div class="cfoot">📍 Lumen Field, Seattle</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇿</span><div class="tn">New Zealand</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇧🇪</span><div class="tn">Belgium</div></div></div><div class="cfoot">📍 BC Place, Vancouver</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇻</span><div class="tn">Cape Verde</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇦</span><div class="tn">Saudi Arabia</div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇺🇾</span><div class="tn">Uruguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇪🇸</span><div class="tn">Spain</div></div></div><div class="cfoot">📍 Estadio Akron, Guadalajara</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇴</span><div class="tn">Norway</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇫🇷</span><div class="tn">France</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇸🇳</span><div class="tn">Senegal</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇶</span><div class="tn">Iraq</div></div></div><div class="cfoot">📍 MetLife Stadium, New Jersey</div></div>
+  </div>
+</div>
+
+<!-- DAY 17 · SUN 28 JUN QLD -->
+<div class="day-section collapsible">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div class="day-label">Day 17</div>
+    <div class="day-date">Sunday 28 June 2026</div>
+    <div class="day-toggle"><span>6 matches · Groups J–L MD3 · Final group stage day</span><span class="arrow">▼</span></div>
+  </div>
+  <div class="grid">
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP J · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇩🇿</span><div class="tn">Algeria</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇹</span><div class="tn">Austria</div></div></div><div class="cfoot">📍 Arrowhead Stadium, Kansas City</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP J · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇯🇴</span><div class="tn">Jordan</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇷</span><div class="tn">Argentina ★</div></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP K · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇴</span><div class="tn">Colombia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">9:30am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇵🇹</span><div class="tn">Portugal</div></div></div><div class="cfoot">📍 Hard Rock Stadium, Miami</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP K · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇩</span><div class="tn">DR Congo</div></div><div class="sb"><div class="vs">vs</div><div class="kt">9:30am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇺🇿</span><div class="tn">Uzbekistan</div></div></div><div class="cfoot">📍 Mercedes-Benz Stadium, Atlanta</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP L · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇦</span><div class="tn">Panama</div></div><div class="sb"><div class="vs">vs</div><div class="kt">7:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><div class="tn">England</div></div></div><div class="cfoot">📍 MetLife Stadium, New Jersey</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP L · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇭🇷</span><div class="tn">Croatia</div></div><div class="sb"><div class="vs">vs</div><div class="kt">7:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇬🇭</span><div class="tn">Ghana</div></div></div><div class="cfoot">📍 Lincoln Financial Field, Philadelphia</div></div>
+  </div>
+</div>
+
 
 <div class="ko">
   <div class="ko-icon">🏆</div>
@@ -1762,6 +1952,14 @@ function showTab(id, el) {
 
 </div><!-- /wc-poster -->
 </div><!-- /wallchart panel -->
+
+
+<script>
+function toggleDay(el) {
+  var section = el.closest('.day-section');
+  section.classList.toggle('collapsed');
+}
+</script>
 
 </body>
 </html>
