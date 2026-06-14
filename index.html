@@ -437,7 +437,7 @@
   .wc-bracket-band {
     padding: 6px 6px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 100px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 90px 1fr 1fr 1fr 1fr 1fr;
     gap: 3px;
     align-items: center;
   }
@@ -1539,9 +1539,9 @@ function showTab(id, el) {
   <!-- ══ KNOCKOUT BRACKET BAND ══ -->
   <div class="wc-bracket-band">
 
-    <!-- R32 LEFT (cols 1–2, 4 slots each = 8 total left side) -->
+    <!-- R32 LEFT col 1 -->
     <div class="wc-bk-round">
-      <div class="wc-bk-label">Round of 32 · Jun 28–Jul 3</div>
+      <div class="wc-bk-label">Round of 32<br>Jun 28–Jul 3</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1A v 3rd · Sun 28</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1B v 2C · Mon 29</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1C v 3rd · Tue 30</div></div>
@@ -1550,6 +1550,7 @@ function showTab(id, el) {
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2D v 2F · Fri 3 Jul</div></div>
     </div>
 
+    <!-- R32 LEFT col 2 -->
     <div class="wc-bk-round">
       <div class="wc-bk-label">Round of 32 cont.</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1E v 3rd · Sun 28</div></div>
@@ -1562,7 +1563,7 @@ function showTab(id, el) {
 
     <!-- R16 LEFT -->
     <div class="wc-bk-round">
-      <div class="wc-bk-label">Round of 16 · Jul 4–7</div>
+      <div class="wc-bk-label">Round of 16<br>Jul 4–7</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W1 v W2 · Mon 7</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W3 v W4 · Mon 7</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W5 v W6 · Tue 8</div></div>
@@ -1571,10 +1572,15 @@ function showTab(id, el) {
 
     <!-- QF LEFT -->
     <div class="wc-bk-round">
-      <div class="wc-bk-label">Quarter-Finals · Jul 10–11</div>
+      <div class="wc-bk-label">Quarter-Finals<br>Jul 10–11</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">QF1 · Thu 10 Jul</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">QF2 · Fri 11 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd" style="opacity:0.3;"><div class="wc-bk-tbd-label">SF1 · Tue 15 Jul</div></div>
+    </div>
+
+    <!-- SF LEFT -->
+    <div class="wc-bk-round">
+      <div class="wc-bk-label">Semi-Final<br>Tue 15 Jul</div>
+      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">SF1 · Tue 15 Jul<br>4:00am QLD</div></div>
     </div>
 
     <!-- FINAL CENTRE -->
@@ -1582,29 +1588,34 @@ function showTab(id, el) {
       <div class="wc-final-pill">
         <div class="wc-fp-label">The Final</div>
         <span class="wc-fp-trophy">🏆</span>
-        <div class="wc-fp-date">Mon 20 Jul<br>5:00am QLD</div>
+        <div class="wc-fp-date">Sun 20 Jul<br>5:00am QLD</div>
         <div class="wc-fp-venue">MetLife Stadium<br>New Jersey</div>
       </div>
     </div>
 
+    <!-- SF RIGHT -->
+    <div class="wc-bk-round">
+      <div class="wc-bk-label">Semi-Final<br>Wed 16 Jul</div>
+      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">SF2 · Wed 16 Jul<br>4:00am QLD</div></div>
+    </div>
+
     <!-- QF RIGHT -->
     <div class="wc-bk-round">
-      <div class="wc-bk-label">Quarter-Finals · Jul 10–11</div>
+      <div class="wc-bk-label">Quarter-Finals<br>Jul 10–11</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">QF3 · Thu 10 Jul</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">QF4 · Fri 11 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd" style="opacity:0.3;"><div class="wc-bk-tbd-label">SF2 · Wed 16 Jul</div></div>
     </div>
 
     <!-- R16 RIGHT -->
     <div class="wc-bk-round">
-      <div class="wc-bk-label">Round of 16 · Jul 4–7</div>
+      <div class="wc-bk-label">Round of 16<br>Jul 4–7</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W9 v W10 · Wed 9</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W11 v W12 · Wed 9</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W13 v W14 · Thu 10</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">W15 v W16 · Thu 10</div></div>
     </div>
 
-    <!-- R32 RIGHT -->
+    <!-- R32 RIGHT col 1 -->
     <div class="wc-bk-round">
       <div class="wc-bk-label">Round of 32 cont.</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1I v 3rd · Sun 28</div></div>
@@ -1615,9 +1626,9 @@ function showTab(id, el) {
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2K v 3rd · Fri 3 Jul</div></div>
     </div>
 
-    <!-- R32 FAR RIGHT -->
+    <!-- R32 RIGHT col 2 -->
     <div class="wc-bk-round">
-      <div class="wc-bk-label">Round of 32 · Jun 28–Jul 3</div>
+      <div class="wc-bk-label">Round of 32<br>Jun 28–Jul 3</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1I v 3rd · Sun 28</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1J v 2K · Mon 29</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2B v 3rd · Tue 30</div></div>
