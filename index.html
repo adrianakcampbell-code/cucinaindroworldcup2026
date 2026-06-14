@@ -39,14 +39,14 @@
   .tab.active{color:#fff;border-bottom-color:var(--gold);}
 
   /* CONTENT PANELS */
-  .panel{display:none;} .panel.active{display:block;}
+  .panel{display:none;} .panel.active{display:block;background:#0b1a2b;}
 
   /* LAYOUT */
-  .content{padding:18px 16px;max-width:1320px;margin:0 auto;}
+  .content{padding:18px 16px;max-width:1320px;margin:0 auto;background:#0b1a2b;}
 
   /* DAY HEADERS */
-  .day-section{margin-bottom:22px;}
-  .day-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.3);}
+  .day-section{margin-bottom:22px;background:transparent;}
+  .day-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.3);background:transparent;}
   .day-label{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#fff;}
   .day-date{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1px;}
   .today-pill{background:var(--gold);color:#002868;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border-radius:2px;}
@@ -111,7 +111,7 @@
   .cfoot{padding:5px 12px 8px;font-size:10px;color:rgba(255,255,255,0.4);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;border-top:1px solid rgba(255,255,255,0.06);}
 
   /* ═══════════════════════ GROUP TABLES ═══════════════════════ */
-  .groups-layout{padding:18px 16px;max-width:1320px;margin:0 auto;}
+  .groups-layout{padding:18px 16px;max-width:1320px;margin:0 auto;background:#0b1a2b;}
   .groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;}
 
   .group-card{background:#0d1e32;border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;}
@@ -555,6 +555,8 @@
 
 
   /* ── ACCORDION DAYS ── */
+  
+  .day-section.collapsible.collapsed { background: transparent; }
   .day-section.collapsible .day-header {
     cursor: pointer;
     user-select: none;
@@ -601,6 +603,9 @@
     border-radius: 2px;
   }
 
+  #schedule{background:#0b1a2b;}
+  #groups{background:#0b1a2b;}
+  html{background:#0b1a2b;}
 </style>
 </head>
 <body>
@@ -616,7 +621,7 @@
   <div class="hmeta">
     <span class="badge">🟢 Live Tournament</span>
     <span class="ts">All times: QLD / AEST (UTC+10)</span>
-    <span class="ts" style="margin-top:2px;">Updated: Sun 15 June 2026</span>
+    <span class="ts" style="margin-top:2px;">Updated: Mon 15 June 2026</span>
     <span class="ts" style="margin-top:2px;color:rgba(255,255,255,0.3);">Sources: SBS Sport · FIFA.com</span>
   </div>
 </div>
@@ -825,11 +830,12 @@
   <div class="day-header">
     <div class="day-label">Day 4</div>
     <div class="day-date">Monday 15 June 2026</div>
+    <div class="today-pill">TODAY</div>
     <div class="day-toggle" onclick="toggleDay(this)"><span>4 matches · 🇸🇪 Sweden</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E</span></div><div class="cbody"><div class="team"><span class="tf">🇩🇪</span><div class="tn">Germany</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">3:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇨🇼</span><div class="tn">Curaçao</div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP F</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇱</span><div class="tn">Netherlands</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">6:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇯🇵</span><div class="tn">Japan</div></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas</div></div>
+    <div class="card result"><div class="ctop"><span class="gt">GROUP E</span><span class="st-ft">FT ✓ 7–1 🔥</span></div><div class="cbody"><div class="team"><span class="tf">🇩🇪</span><div class="tn">Germany</div></div><div class="sb"><div class="score">7–1</div><div class="st-time">3:00am QLD</div></div><div class="team"><span class="tf">🇨🇼</span><div class="tn">Curaçao</div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">⚽ Nmecha 6' · Schlotterbeck 38'</span><span class="sc-i">⚽P Havertz 45+5' · Musiala 47'</span><span class="sc-i">⚽ Brown 68' · Undav 78' · Havertz 88'</span></div><div class="sc-r"><span class="sc-i">⚽ Comenencia 21' ⭐</span></div></div><div class="disc"><div class="dl"><span class="dlbl">No cards (GER)</span></div><div class="dr"><span class="dlbl">No cards (CUW)</span></div></div><div class="cfoot">📍 NRG Stadium, Houston · Germany top Group E · Comenencia scored CUW's 1st WC goal</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP F</span><span>🔴 HT 0–0</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇱</span><div class="tn">Netherlands</div></div><div class="sb"><div class="score">0–0</div><div class="st-time">HT · 6:00am</div></div><div class="team"><span class="tf">🇯🇵</span><div class="tn">Japan</div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">Malen denied twice by Suzuki</span></div><div class="sc-r"><span class="sc-i">Nakamura hit side netting</span></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas · 🔴 HALF TIME</div></div>
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP E</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇮</span><div class="tn">Ivory Coast</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">9:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇪🇨</span><div class="tn">Ecuador</div></div></div><div class="cfoot">📍 Lincoln Financial Field, Philadelphia</div></div>
     <div class="card upcoming hl-swe"><div class="ctop"><span class="gt">GROUP F</span></div><div class="cbody"><div class="team"><span class="tf">🇸🇪</span><div class="tn">Sweden <span class="tbadge tb-swe">SWE</span></div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">12:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇹🇳</span><div class="tn">Tunisia</div></div></div><div class="cfoot">📍 Estadio BBVA, Monterrey</div></div>
   </div>
@@ -1125,17 +1131,17 @@
 
     <!-- GROUP E — 0 played -->
     <div class="group-card">
-      <div class="group-hdr"><span class="group-name">Group E</span><span class="group-played">0 of 6 played</span></div>
+      <div class="group-hdr"><span class="group-name">Group E</span><span class="group-played">1 of 6 played</span></div>
       <table class="gtable">
         <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead>
         <tbody>
-          <tr class="no-result"><td>1</td><td class="team-cell"><span class="tf-sm">🇩🇪</span>Germany</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
+          <tr class="qualify-auto"><td>1</td><td class="team-cell"><span class="tf-sm">🇩🇪</span>Germany</td><td>1</td><td>1</td><td>0</td><td>0</td><td>7</td><td>1</td><td class="gd-pos">+6</td><td class="pts">3</td></tr>
           <tr class="no-result"><td>2</td><td class="team-cell"><span class="tf-sm">🇪🇨</span>Ecuador</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
           <tr class="no-result"><td>3</td><td class="team-cell"><span class="tf-sm">🇨🇮</span>Ivory Coast</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
-          <tr class="no-result"><td>4</td><td class="team-cell"><span class="tf-sm">🇨🇼</span>Curaçao</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
+          <tr><td>4</td><td class="team-cell"><span class="tf-sm">🇨🇼</span>Curaçao</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>7</td><td class="gd-neg">−6</td><td class="pts">0</td></tr>
         </tbody>
       </table>
-      <div class="qual-bar"><span class="qb qb-none">First matches Mon 15 Jun</span></div>
+      <div class="qual-bar"><span class="qb qb-auto">Germany 3pts · CIV v ECU Mon 15 Jun 9am QLD</span></div>
     </div>
 
     <!-- GROUP F — SWEDEN HIGHLIGHT — 0 played -->
@@ -1483,7 +1489,7 @@ function showTab(id, el) {
       <tr><td>—</td><td>🇨🇼 Curaçao</td><td>0</td><td>0</td><td class="mt-pts">0</td></tr>
     </tbody></table>
     <div class="cf-fixtures">
-      <div class="cf-match"><div class="cf-match-date">Mon 15 Jun · 3:00am</div><div class="cf-match-row"><span class="cf-tn">Germany</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Curaçao</span></div><div class="cf-detail">NRG Stadium, Houston</div></div>
+      <div class="cf-match"><div class="cf-match-date">Mon 15 Jun · 3:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">Germany</span><div class="cf-sc"><span class="cf-score">7–1</span></div><span class="cf-tn r">Curaçao</span></div><div class="cf-detail">⚽ Nmecha 6' · Schlotterbeck 38' · Havertz 45+5'(P) 88' · Musiala 47' · Brown 68' · Undav 78' / Comenencia 21' ⭐</div><div class="cf-cards">No cards · Comenencia's goal: Curaçao's first ever World Cup goal</div><a class="cf-hl-link" href="https://youtu.be/I-px7CoLNbk?si=gIQxHH3tfgvkiRFj" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
       <div class="cf-match"><div class="cf-match-date">Mon 15 Jun · 9:00am</div><div class="cf-match-row"><span class="cf-tn">Ivory Coast</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Ecuador</span></div><div class="cf-detail">Lincoln Financial Field, Philadelphia</div></div>
       <div class="cf-match"><div class="cf-match-date">Sun 21 Jun · 6:00am</div><div class="cf-match-row"><span class="cf-tn">Germany</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Ivory Coast</span></div><div class="cf-detail">BMO Field, Toronto</div></div>
       <div class="cf-match"><div class="cf-match-date">Sun 21 Jun · 10:00am</div><div class="cf-match-row"><span class="cf-tn">Ecuador</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Curaçao</span></div><div class="cf-detail">Arrowhead Stadium, Kansas City</div></div>
@@ -1502,7 +1508,7 @@ function showTab(id, el) {
       <tr><td>—</td><td>🇸🇪 Sweden</td><td>0</td><td>0</td><td class="mt-pts">0</td></tr>
     </tbody></table>
     <div class="cf-fixtures">
-      <div class="cf-match"><div class="cf-match-date">Mon 15 Jun · 6:00am</div><div class="cf-match-row"><span class="cf-tn">Netherlands</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Japan</span></div><div class="cf-detail">AT&amp;T Stadium, Dallas</div></div>
+      <div class="cf-match hl-swe"><div class="cf-match-date">Mon 15 Jun · 6:00am <span class="cf-today-badge">HT 0–0</span></div><div class="cf-match-row"><span class="cf-tn">Netherlands</span><div class="cf-sc"><span class="cf-score" style="color:#FECC02;">0–0</span></div><span class="cf-tn r">Japan</span></div><div class="cf-detail">🔴 Half time · Malen denied twice · Nakamura hit side netting</div></div>
       <div class="cf-match hl-swe"><div class="cf-match-date">Mon 15 Jun · 12:00pm</div><div class="cf-match-row"><span class="cf-tn">Sweden 🇸🇪</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Tunisia</span></div><div class="cf-detail">Estadio BBVA, Monterrey · SBS</div></div>
       <div class="cf-match hl-swe"><div class="cf-match-date">Sun 21 Jun · 3:00am</div><div class="cf-match-row"><span class="cf-tn">Netherlands</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Sweden 🇸🇪</span></div><div class="cf-detail">NRG Stadium, Houston · SBS</div></div>
       <div class="cf-match"><div class="cf-match-date">Sun 21 Jun · 2:00pm</div><div class="cf-match-row"><span class="cf-tn">Tunisia</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Japan</span></div><div class="cf-detail">Estadio BBVA, Monterrey</div></div>
@@ -1635,7 +1641,7 @@ function showTab(id, el) {
     <div class="cf-key-item"><div class="cf-key-swatch" style="background:rgba(68,136,221,0.18);border-left:3px solid #4488dd;"></div><span>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</span></div>
     <div class="cf-key-item"><div class="cf-key-swatch" style="background:rgba(0,106,167,0.18);border-left:3px solid #006AA7;"></div><span>🇸🇪 Sweden</span></div>
     <div class="cf-key-item"><span class="cf-rc" style="font-size:10px;">■</span>&nbsp;Red card &nbsp;<span class="cf-yc" style="font-size:10px;">▪</span>&nbsp;Yellow card &nbsp;★ Defending champions (Argentina)</div>
-    <div class="cf-key-item" style="margin-left:auto;color:rgba(26,31,46,0.35);">All times QLD/AEST · Source: SBS Sport Official Broadcast Schedule · Updated Sun 15 Jun 2026</div>
+    <div class="cf-key-item" style="margin-left:auto;color:rgba(26,31,46,0.35);">All times QLD/AEST · Source: SBS Sport Official Broadcast Schedule · Updated Mon 15 Jun 2026</div>
   </div>
 
 </div><!-- /cf-wrap -->
@@ -1722,13 +1728,13 @@ function showTab(id, el) {
 
     <!-- GROUP E -->
     <div class="wc-grp-card">
-      <div class="wc-grp-hdr"><span class="wc-grp-name">Group E</span><span class="wc-grp-md">0/6</span></div>
-      <div class="wc-grp-team gq"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇩🇪</div><div class="wc-grp-tname">Germany</div><div class="wc-grp-pts">0</div></div>
+      <div class="wc-grp-hdr"><span class="wc-grp-name">Group E</span><span class="wc-grp-md">1/6</span></div>
+      <div class="wc-grp-team gq"><div class="wc-grp-pos">1</div><div class="wc-grp-flag">🇩🇪</div><div class="wc-grp-tname">Germany</div><div class="wc-grp-pts">3</div></div>
       <div class="wc-grp-team gq"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇪🇨</div><div class="wc-grp-tname">Ecuador</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-team gm"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇨🇮</div><div class="wc-grp-tname">Ivory Coast</div><div class="wc-grp-pts">0</div></div>
-      <div class="wc-grp-team"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇨🇼</div><div class="wc-grp-tname">Curaçao</div><div class="wc-grp-pts">0</div></div>
+      <div class="wc-grp-team"><div class="wc-grp-pos">4</div><div class="wc-grp-flag">🇨🇼</div><div class="wc-grp-tname">Curaçao</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-results">
-        <div class="wc-grp-result"><span class="wc-gr-h">Germany</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Curaçao</span><span class="wc-gr-d">Mon 15</span></div>
+        <div class="wc-grp-result"><span class="wc-gr-h">Germany</span><span class="wc-gr-s">7–1</span><span class="wc-gr-a">Curaçao</span><span class="wc-gr-d">Mon 15</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Ivory Coast</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Ecuador</span><span class="wc-gr-d">Mon 15</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h" style="color:rgba(255,255,255,0.25);font-size:7.5px;text-align:center;flex:2">MD2: Sun 21 Jun · MD3: Fri 26 Jun</span></div>
       </div>
@@ -1742,7 +1748,7 @@ function showTab(id, el) {
       <div class="wc-grp-team gm"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇹🇳</div><div class="wc-grp-tname">Tunisia</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-team"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇸🇪</div><div class="wc-grp-tname">Sweden 🇸🇪</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-results">
-        <div class="wc-grp-result"><span class="wc-gr-h">Netherlands</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Japan</span><span class="wc-gr-d">Mon 15</span></div>
+        <div class="wc-grp-result"><span class="wc-gr-h">Netherlands</span><span class="wc-gr-s" style="color:#ff9900;">HT</span><span class="wc-gr-a">Japan</span><span class="wc-gr-d">0–0</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Sweden 🇸🇪</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Tunisia</span><span class="wc-gr-d">Mon 15</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h" style="color:rgba(255,255,255,0.25);font-size:7.5px;text-align:center;flex:2">MD2: Sun 21 Jun · MD3: Fri 26 Jun</span></div>
       </div>
@@ -1950,7 +1956,7 @@ function showTab(id, el) {
     <div class="wc-pf-item"><div class="wc-pf-dot" style="background:rgba(68,136,221,0.2);border:1px solid #4488dd;"></div>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div>
     <div class="wc-pf-item"><div class="wc-pf-dot" style="background:rgba(0,106,167,0.2);border:1px solid #006AA7;"></div>🇸🇪 Sweden</div>
     <div class="wc-pf-item">★ Defending champions (Argentina)</div>
-    <div style="margin-left:auto;">All times QLD/AEST (UTC+10) · Sources: SBS Sport &amp; FIFA.com · Updated Sun 15 Jun 2026</div>
+    <div style="margin-left:auto;">All times QLD/AEST (UTC+10) · Sources: SBS Sport &amp; FIFA.com · Updated Mon 15 Jun 2026</div>
   </div>
 
 </div><!-- /wc-poster -->
