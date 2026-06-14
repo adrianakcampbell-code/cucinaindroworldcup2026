@@ -715,14 +715,22 @@
       </div>
       <div class="cfoot">📍 Levi's Stadium, San Francisco · ⭐ Qatar's first ever World Cup point</div>
     </div>
-    <div class="card upcoming">
-      <div class="ctop"><span class="gt">GROUP C</span><span>8:00am QLD</span></div>
+    <div class="card result">
+      <div class="ctop"><span class="gt">GROUP C</span><span class="st-ft">FT ✓</span></div>
       <div class="cbody">
         <div class="team"><span class="tf">🇧🇷</span><div class="tn">Brazil</div></div>
-        <div class="sb"><div class="vs">vs</div><div class="kt">8:00am</div></div>
+        <div class="sb"><div class="score">1–1</div><div class="st-time">8:00am QLD</div></div>
         <div class="team"><span class="tf">🇲🇦</span><div class="tn">Morocco</div></div>
       </div>
-      <div class="cfoot">📍 New York / New Jersey Stadium</div>
+      <div class="scorers">
+        <div class="sc-l"><span class="sc-i">⚽ Vinicius Jr. 32'</span></div>
+        <div class="sc-r"><span class="sc-i">⚽ Saibari 21'</span></div>
+      </div>
+      <div class="disc">
+        <div class="dl"><div class="di"><span class="yc"></span><span class="dlbl">Casemiro 43'</span></div><br><div class="di"><span class="yc"></span><span class="dlbl">Ibáñez 45'</span></div></div>
+        <div class="dr"><span class="dlbl">No cards (MAR)</span></div>
+      </div>
+      <div class="cfoot">📍 New York/New Jersey Stadium (MetLife)</div>
     </div>
     <div class="card upcoming hl-sco">
       <div class="ctop"><span class="gt">GROUP C</span><span>11:00am QLD</span></div>
@@ -877,12 +885,12 @@
 
     <!-- GROUP C — SCOTLAND HIGHLIGHT — 0 played -->
     <div class="group-card hl-group-sco">
-      <div class="group-hdr"><span class="group-name">Group C 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="group-played">0 of 6 played</span></div>
+      <div class="group-hdr"><span class="group-name">Group C 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="group-played">1 of 6 played</span></div>
       <table class="gtable">
         <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead>
         <tbody>
-          <tr class="no-result"><td>1</td><td class="team-cell"><span class="tf-sm">🇧🇷</span>Brazil</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
-          <tr class="no-result"><td>2</td><td class="team-cell"><span class="tf-sm">🇲🇦</span>Morocco</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
+          <tr class="qualify-3rd"><td>1</td><td class="team-cell"><span class="tf-sm">🇧🇷</span>Brazil</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="gd-zero">0</td><td class="pts">1</td></tr>
+          <tr class="qualify-3rd"><td>2</td><td class="team-cell"><span class="tf-sm">🇲🇦</span>Morocco</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="gd-zero">0</td><td class="pts">1</td></tr>
           <tr class="no-result"><td>3</td><td class="team-cell"><span class="tf-sm">🇭🇹</span>Haiti</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
           <tr class="no-result"><td>4</td><td class="team-cell"><span class="tf-sm">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>Scotland</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
         </tbody>
@@ -1171,9 +1179,11 @@ function showTab(id, el) {
     </tbody></table>
     <div class="cf-fixtures">
       <div class="cf-match">
-        <div class="cf-match-date">Sun 14 Jun · 8:00am <span class="cf-today-badge">TODAY</span></div>
-        <div class="cf-match-row"><span class="cf-tn">Brazil</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Morocco</span></div>
-        <div class="cf-detail">New York/New Jersey Stadium</div>
+        <div class="cf-match-date">Sun 14 Jun · 8:00am <span class="cf-result-badge">FT</span></div>
+        <div class="cf-match-row"><span class="cf-tn">Brazil</span><div class="cf-sc"><span class="cf-score">1–1</span></div><span class="cf-tn r">Morocco</span></div>
+        <div class="cf-detail">⚽ Vinicius Jr. 32' / ⚽ Saibari 21'</div>
+        <div class="cf-cards"><span class="cf-yc">▪ Casemiro 43' · Ibáñez 45' (BRA)</span></div>
+        <a class="cf-hl-link" href="https://youtu.be/c1qsNkpBoT8?si=h68TzW_3GvP3fQwe" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a>
       </div>
       <div class="cf-match hl-sco">
         <div class="cf-match-date">Sun 14 Jun · 11:00am</div>
@@ -1466,13 +1476,13 @@ function showTab(id, el) {
 
     <!-- GROUP C — SCOTLAND -->
     <div class="wc-grp-card gc-sco">
-      <div class="wc-grp-hdr"><span class="wc-grp-name">Group C 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="wc-grp-md">0/6</span></div>
-      <div class="wc-grp-team gq"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇧🇷</div><div class="wc-grp-tname">Brazil</div><div class="wc-grp-pts">0</div></div>
-      <div class="wc-grp-team gq"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇲🇦</div><div class="wc-grp-tname">Morocco</div><div class="wc-grp-pts">0</div></div>
+      <div class="wc-grp-hdr"><span class="wc-grp-name">Group C 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="wc-grp-md">1/6</span></div>
+      <div class="wc-grp-team gq"><div class="wc-grp-pos">1</div><div class="wc-grp-flag">🇧🇷</div><div class="wc-grp-tname">Brazil</div><div class="wc-grp-pts">1</div></div>
+      <div class="wc-grp-team gq"><div class="wc-grp-pos">2</div><div class="wc-grp-flag">🇲🇦</div><div class="wc-grp-tname">Morocco</div><div class="wc-grp-pts">1</div></div>
       <div class="wc-grp-team gm"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇭🇹</div><div class="wc-grp-tname">Haiti</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-team"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div><div class="wc-grp-tname">Scotland</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-results">
-        <div class="wc-grp-result"><span class="wc-gr-h">Brazil</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Morocco</span><span class="wc-gr-d">Sun 14</span></div>
+        <div class="wc-grp-result"><span class="wc-gr-h">Brazil</span><span class="wc-gr-s">1–1</span><span class="wc-gr-a">Morocco</span><span class="wc-gr-d">Sun 14</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Haiti</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="wc-gr-d">Sun 14</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Morocco</span><span class="wc-gr-d">Sat 20</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Brazil</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Haiti</span><span class="wc-gr-d">Sat 20</span></div>
