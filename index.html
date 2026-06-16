@@ -866,7 +866,7 @@
     <div class="day-toggle" onclick="toggleDay(this)"><span>4 matches</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I</span></div><div class="cbody"><div class="team"><span class="tf">🇫🇷</span><div class="tn">France</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇳</span><div class="tn">Senegal</div></div></div><div class="cfoot">📍 New York / New Jersey Stadium</div></div>
+    <div class="card result"><div class="ctop"><span class="gt">GROUP I</span><span class="st-ft">FT ✓ Mbappé 2! ⭐</span></div><div class="cbody"><div class="team"><span class="tf">🇫🇷</span><div class="tn">France</div></div><div class="sb"><div class="score">3–1</div><div class="st-time">5:00am QLD</div></div><div class="team"><span class="tf">🇸🇳</span><div class="tn">Senegal</div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">⚽ Mbappé 66' · Barcola 81' · Mbappé 90+8'</span></div><div class="sc-r"><span class="sc-i">⚽ Mbaye 90+7'</span></div></div><div class="disc"><div class="dl"><span class="dlbl">No cards (FRA)</span></div><div class="dr"><span class="dlbl">No cards (SEN)</span></div></div><div class="cfoot">📍 New York/New Jersey Stadium · Barcola scored 2 min after coming on!</div></div>
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I</span></div><div class="cbody"><div class="team"><span class="tf">🇮🇶</span><div class="tn">Iraq</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">8:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇳🇴</span><div class="tn">Norway</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston</div></div>
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP J</span></div><div class="cbody"><div class="team"><span class="tf">🇦🇷</span><div class="tn">Argentina</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">11:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇩🇿</span><div class="tn">Algeria</div></div></div><div class="cfoot">📍 Arrowhead Stadium, Kansas City</div></div>
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP J</span></div><div class="cbody"><div class="team"><span class="tf">🇦🇹</span><div class="tn">Austria</div></div><div class="sb"><div class="vs">vs</div><div class="kt" style="font-size:18px;">2:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇯🇴</span><div class="tn">Jordan</div></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara</div></div>
@@ -1193,7 +1193,7 @@
 
     <!-- GROUP I — 0 played -->
     <div class="group-card">
-      <div class="group-hdr"><span class="group-name">Group I</span><span class="group-played">0 of 6 played</span></div>
+      <div class="group-hdr"><span class="group-name">Group I</span><span class="group-played">1 of 6 played</span></div>
       <table class="gtable">
         <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead>
         <tbody>
@@ -1203,7 +1203,7 @@
           <tr class="no-result"><td>4</td><td class="team-cell"><span class="tf-sm">🇮🇶</span>Iraq</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="gd-zero">0</td><td class="pts">0</td></tr>
         </tbody>
       </table>
-      <div class="qual-bar"><span class="qb qb-none">First matches Tue 17 Jun</span></div>
+      <div class="qual-bar"><span class="qb qb-auto">France 3pts · Iraq v Norway Wed 17 Jun 8am QLD</span></div>
     </div>
 
     <!-- GROUP J — 0 played -->
@@ -1569,7 +1569,8 @@ function showTab(id, el) {
       <tr><td>—</td><td>🇮🇶 Iraq</td><td>0</td><td>0</td><td class="mt-pts">0</td></tr>
     </tbody></table>
     <div class="cf-fixtures">
-      <div class="cf-match"><div class="cf-match-date">Wed 17 Jun · 5:00am</div><div class="cf-match-row"><span class="cf-tn">France</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Senegal</span></div><div class="cf-detail">New York/New Jersey Stadium</div></div>
+      <div class="cf-match"><div class="cf-match-date">Wed 17 Jun · 5:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">France</span><div class="cf-sc"><span class="cf-score">3–1</span></div><span class="cf-tn r">Senegal</span></div><div class="cf-detail">⚽ Mbappé 66' 90+8' · Barcola 81' / ⚽ Mbaye 90+7'</div><div class="cf-cards">No cards · Barcola scored just 2 min after coming on as sub!</div>
+        <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
       <div class="cf-match"><div class="cf-match-date">Wed 17 Jun · 8:00am</div><div class="cf-match-row"><span class="cf-tn">Iraq</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Norway</span></div><div class="cf-detail">Gillette Stadium, Boston</div></div>
       <div class="cf-match"><div class="cf-match-date">Tue 23 Jun · 7:00am</div><div class="cf-match-row"><span class="cf-tn">France</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Iraq</span></div><div class="cf-detail">Arrowhead Stadium, Kansas City</div></div>
       <div class="cf-match"><div class="cf-match-date">Tue 23 Jun · 10:00am</div><div class="cf-match-row"><span class="cf-tn">Norway</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Senegal</span></div><div class="cf-detail">MetLife Stadium, New Jersey</div></div>
@@ -1896,13 +1897,13 @@ function showTab(id, el) {
 
     <!-- GROUP I -->
     <div class="wc-grp-card">
-      <div class="wc-grp-hdr"><span class="wc-grp-name">Group I</span><span class="wc-grp-md">0/6</span></div>
-      <div class="wc-grp-team gq"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇫🇷</div><div class="wc-grp-tname">France</div><div class="wc-grp-pts">0</div></div>
-      <div class="wc-grp-team gq"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇸🇳</div><div class="wc-grp-tname">Senegal</div><div class="wc-grp-pts">0</div></div>
+      <div class="wc-grp-hdr"><span class="wc-grp-name">Group I</span><span class="wc-grp-md">1/6</span></div>
+      <div class="wc-grp-team gq"><div class="wc-grp-pos">1</div><div class="wc-grp-flag">🇫🇷</div><div class="wc-grp-tname">France</div><div class="wc-grp-pts">3</div></div>
+      <div class="wc-grp-team"><div class="wc-grp-pos">3</div><div class="wc-grp-flag">🇸🇳</div><div class="wc-grp-tname">Senegal</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-team gm"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇳🇴</div><div class="wc-grp-tname">Norway</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-team"><div class="wc-grp-pos">—</div><div class="wc-grp-flag">🇮🇶</div><div class="wc-grp-tname">Iraq</div><div class="wc-grp-pts">0</div></div>
       <div class="wc-grp-results">
-        <div class="wc-grp-result"><span class="wc-gr-h">France</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Senegal</span><span class="wc-gr-d">Wed 17</span></div>
+        <div class="wc-grp-result"><span class="wc-gr-h">France</span><span class="wc-gr-s">3–1</span><span class="wc-gr-a">Senegal</span><span class="wc-gr-d">Wed 17</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Iraq</span><span class="wc-gr-s upcoming">vs</span><span class="wc-gr-a">Norway</span><span class="wc-gr-d">Wed 17</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h" style="color:rgba(255,255,255,0.25);font-size:7.5px;text-align:center;flex:2">MD2: Tue 23 Jun · MD3: Sat 27 Jun</span></div>
       </div>
