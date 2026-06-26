@@ -606,6 +606,43 @@
   #schedule{background:#0b1a2b;}
   #groups{background:#0b1a2b;}
   html{background:#0b1a2b;}
+
+/* ═══ QUALIFICATION COLOUR CODING ═══ */
+.gtable tbody tr.qualify-auto td { border-left: 3px solid #22c55e; }
+.gtable tbody tr.qualify-auto td:first-child { color: #22c55e; font-weight: 700; }
+.gtable tbody tr.qualify-3rd td { border-left: 3px solid #f59e0b; }
+.gtable tbody tr.qualify-3rd td:first-child { color: #f59e0b; font-weight: 700; }
+.gtable tbody tr:not(.qualify-auto):not(.qualify-3rd) td { border-left: 3px solid rgba(239,68,68,0.4); }
+.gtable tbody tr:not(.qualify-auto):not(.qualify-3rd) td:first-child { color: rgba(239,68,68,0.7); }
+
+/* Qualification legend */
+.qual-legend { display:flex; gap:16px; padding:10px 16px; background:rgba(0,0,0,0.2); border-radius:6px; margin:12px 16px 0; flex-wrap:wrap; }
+.qual-legend-item { display:flex; align-items:center; gap:6px; font-size:11px; color:rgba(255,255,255,0.7); }
+.qual-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.qual-legend-dot.auto { background:#22c55e; }
+.qual-legend-dot.third { background:#f59e0b; }
+.qual-legend-dot.elim { background:rgba(239,68,68,0.6); }
+
+/* ═══ HIDE COMPLETED DAYS TOGGLE ═══ */
+.schedule-toolbar { display:flex; justify-content:flex-end; padding:10px 16px 4px; }
+.toggle-completed-btn {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.75);
+  font-size:12px;
+  padding:6px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:inherit;
+}
+.toggle-completed-btn:hover { background:rgba(255,255,255,0.15); color:#fff; }
+
+/* ═══ R32 BRACKET SLOTS ═══ */
+.wc-bk-slot.bk-confirmed { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.2); border-radius:5px; padding:6px 8px; margin:3px 0; }
+.wc-bk-slot.bk-aus { background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.4); border-radius:5px; padding:6px 8px; margin:3px 0; }
+.wc-bk-match { font-size:10px; color:#fff; line-height:1.5; font-weight:500; }
+.wc-bk-time { font-size:9px; color:rgba(255,255,255,0.5); font-weight:400; }
 </style>
 </head>
 <body>
@@ -621,7 +658,7 @@
   <div class="hmeta">
     <span class="badge">🟢 Live Tournament</span>
     <span class="ts">All times: QLD / AEST (UTC+10)</span>
-    <span class="ts" style="margin-top:2px;">Updated: Thu 25 June 2026</span>
+    <span class="ts" style="margin-top:2px;">Updated: Fri 26 June 2026</span>
     <span class="ts" style="margin-top:2px;color:rgba(255,255,255,0.3);">Sources: SBS Sport · FIFA.com</span>
   </div>
 </div>
@@ -629,7 +666,7 @@
 <!-- ═══ LEGEND ═══ -->
 <div class="legend">
   <div class="li"><div class="ld ld-ft"></div>Result</div>
-  <div class="li"><div class="ld ld-td"></div>Today (Thu 25 Jun)</div>
+  <div class="li"><div class="ld ld-td"></div>Today (Fri 26 Jun)</div>
   <div class="li"><div class="ld ld-up"></div>Upcoming</div>
   <span class="lsep">|</span>
   <div class="li"><div class="ld ld-aus"></div>🦘 Socceroos</div>
@@ -652,6 +689,9 @@
 ════════════════════════════════════════ -->
 <div id="schedule" class="panel active">
 <div class="content">
+<div class="schedule-toolbar">
+  <button class="toggle-completed-btn" onclick="toggleCompletedDays(this)" id="toggleCompletedBtn">⬆ Hide previous days</button>
+</div>
 
 <!-- DAY 1 · FRI 12 JUN QLD -->
 <div class="day-section collapsible collapsed">
@@ -1004,7 +1044,7 @@
 </div>
 
 <!-- DAY 15 · FRI 26 JUN QLD -->
-<div class="day-section collapsible">
+<div class="day-section collapsible collapsed">
   <div class="day-header" onclick="toggleDay(this)">
     <div class="day-label">Day 15</div>
     <div class="day-date">Friday 26 June 2026</div>
@@ -1016,8 +1056,8 @@
     <div class="card result"><div class="ctop"><span class="gt">GROUP E · MD3 ⚡ Simult.</span><span class="st-ft">FT ✓ SHOCK! Ecuador beat Germany! 🤯</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇨</span><div class="tn">Ecuador</div></div><div class="sb"><div class="score">2–1</div><div class="st-time">5:00am QLD</div></div><div class="team"><span class="tf">🇩🇪</span><div class="tn">Germany</div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">⚽ Angulo 9' (eq) · Plata 74' ⭐ Ecuador through as best 3rd!</span></div><div class="sc-r"><span class="sc-i">⚽ Sané 2' · 🟨 Hincapié · Pavlovic</span></div></div><div class="disc"><div class="dl"><div class="di"><span class="yc"></span><span class="dlbl">Hincapié (ECU)</span></div></div><div class="dr"><div class="di"><span class="yc"></span><span class="dlbl">Pavlovic (GER)</span></div></div></div><div class="cfoot">📍 MetLife Stadium, New Jersey · Germany still WIN Group E · Ecuador 2pts through as best 3rd! 🎉</div></div>
     <div class="card result hl-swe"><div class="ctop"><span class="gt">GROUP F · MD3 ⚡ Simult.</span><span class="st-ft">FT ✓ 1-1 All THREE through! 🎉🇸🇪</span></div><div class="cbody"><div class="team"><span class="tf">🇯🇵</span><div class="tn">Japan</div></div><div class="sb"><div class="score">1–1</div><div class="st-time">7:00am QLD</div></div><div class="team"><span class="tf">🇸🇪</span><div class="tn">Sweden <span class="tbadge tb-swe">🇸🇪</span></div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">⚽ Nakamura (JPN, 1st half)</span></div><div class="sc-r"><span class="sc-i">⚽ Elanga (SWE) · Sweden 4pts best 3rd! 🇸🇪🎉</span></div></div><div class="disc"><div class="dl"><div class="di"><span class="yc"></span><span class="dlbl">Taniguchi · Kamada (JPN)</span></div></div><div class="dr"><div class="di"><span class="yc"></span><span class="dlbl">Gyökeres · Lindelöf (SWE)</span></div></div></div><div class="cfoot">📍 AT&amp;T Stadium, Dallas · SBS · Japan 2nd · Sweden 3rd as best 3rd! All 3 advance 🎊 Tunisia out ❌</div></div>
     <div class="card result"><div class="ctop"><span class="gt">GROUP F · MD3 ⚡ Simult.</span><span class="st-ft">FT ✓ Netherlands WIN Group F!</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇳</span><div class="tn">Tunisia</div></div><div class="sb"><div class="score">1–3</div><div class="st-time">7:00am QLD</div></div><div class="team"><span class="tf">🇳🇱</span><div class="tn">Netherlands</div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">⚽ Rekik 54' (consolation)</span></div><div class="sc-r"><span class="sc-i">⚽ Skhiri OG 3' · Brobbey 7' · Bergvall OG 62' · Netherlands WIN!</span></div></div><div class="disc"><div class="dl"><span class="dlbl">No cards (TUN)</span></div><div class="dr"><span class="dlbl">No cards (NED)</span></div></div><div class="cfoot">📍 Arrowhead Stadium, Kansas City · Netherlands WIN Group F! Tunisia ELIMINATED · NED next: Brazil</div></div>
-    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇷</span><div class="tn">Türkiye</div></div><div class="sb"><div class="vs">vs</div><div class="kt">12:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇺🇸</span><div class="tn">USA</div></div></div><div class="cfoot">📍 Rose Bowl, Los Angeles</div></div>
-    <div class="card upcoming hl-aus"><div class="ctop"><span class="gt">GROUP D · MD3 ⚡ Simult. · SBS 🦘</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇾</span><div class="tn">Paraguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt">12:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇦🇺</span><div class="tn">Australia <span class="tbadge tb-aus">🦘</span></div></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara · SBS · HUGE MATCH!</div></div>
+    <div class="card result"><div class="ctop"><span class="gt">GROUP D · MD3 ⚡ Simult.</span><span class="st-ft">FT ✓ Türkiye 98' winner! 🤯 Dead rubber</span></div><div class="cbody"><div class="team"><span class="tf">🇹🇷</span><div class="tn">Türkiye</div></div><div class="sb"><div class="score">3–2</div><div class="st-time">12:00pm QLD</div></div><div class="team"><span class="tf">🇺🇸</span><div class="tn">USA</div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i">⚽ Güler 10' · Kökçü 31' · Ayhan 98'(90+8'!) 🤯</span></div><div class="sc-r"><span class="sc-i">⚽ Trusty 3' (1st intl goal!) · Berhalter 48' · Pulisic 58' (cameo!)</span></div></div><div class="disc"><div class="dl"><span class="dlbl">No cards (TUR)</span></div><div class="dr"><span class="dlbl">No cards (USA)</span></div></div><div class="cfoot">📍 Rose Bowl, Los Angeles · USA still WIN Group D! Türkiye eliminated ❌ · USA next: Bosnia · Güler MotM</div></div>
+    <div class="card result hl-aus"><div class="ctop"><span class="gt">GROUP D · MD3 ⚡ Simult. · SBS 🦘</span><span class="st-ft">FT ✓ 0–0 🦘 AUSTRALIA THROUGH! 🎉</span></div><div class="cbody"><div class="team"><span class="tf">🇵🇾</span><div class="tn">Paraguay</div></div><div class="sb"><div class="score">0–0</div><div class="st-time">12:00pm QLD</div></div><div class="team"><span class="tf">🇦🇺</span><div class="tn">Australia <span class="tbadge tb-aus">🦘</span></div></div></div><div class="scorers"><div class="sc-l"><span class="sc-i" style="color:rgba(255,255,255,0.3)">— (Mauricio shot saved · Yengi chance well handled)</span></div><div class="sc-r"><span class="sc-i" style="color:rgba(255,255,255,0.3)">— (Hrustic cut-back · Bos wide · Beach solid for AUS)</span></div></div><div class="disc"><div class="dl"><span class="dlbl">No cards (PAR)</span></div><div class="dr"><span class="dlbl">No cards (AUS)</span></div></div><div class="cfoot">📍 Levi's Stadium, Santa Clara · SBS · 🦘 AUSTRALIA 2ND IN GROUP D! Paraguay 3rd — wait for best-3rd spots!</div></div>
   </div>
 </div>
 
@@ -1026,15 +1066,15 @@
   <div class="day-header" onclick="toggleDay(this)">
     <div class="day-label">Day 16</div>
     <div class="day-date">Saturday 27 June 2026</div>
-    <div class="day-toggle"><span>6 matches · Groups G–I MD3</span><span class="arrow">▼</span></div>
+    <div class="day-toggle"><span>6 matches · Groups G, H &amp; I ⚡ MD3</span><span class="arrow">▼</span></div>
   </div>
   <div class="grid">
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇬</span><div class="tn">Egypt</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇷</span><div class="tn">Iran</div></div></div><div class="cfoot">📍 Lumen Field, Seattle</div></div>
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇿</span><div class="tn">New Zealand</div></div><div class="sb"><div class="vs">vs</div><div class="kt">2:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇧🇪</span><div class="tn">Belgium</div></div></div><div class="cfoot">📍 BC Place, Vancouver</div></div>
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇻</span><div class="tn">Cape Verde</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇦</span><div class="tn">Saudi Arabia</div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇺🇾</span><div class="tn">Uruguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇪🇸</span><div class="tn">Spain</div></div></div><div class="cfoot">📍 Estadio Akron, Guadalajara</div></div>
     <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇴</span><div class="tn">Norway</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇫🇷</span><div class="tn">France</div></div></div><div class="cfoot">📍 Gillette Stadium, Boston</div></div>
-    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇸🇳</span><div class="tn">Senegal</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇶</span><div class="tn">Iraq</div></div></div><div class="cfoot">📍 MetLife Stadium, New Jersey</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP I · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇸🇳</span><div class="tn">Senegal</div></div><div class="sb"><div class="vs">vs</div><div class="kt">5:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇶</span><div class="tn">Iraq</div></div></div><div class="cfoot">📍 BMO Field, Toronto</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇨🇻</span><div class="tn">Cape Verde</div></div><div class="sb"><div class="vs">vs</div><div class="kt">10:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇸🇦</span><div class="tn">Saudi Arabia</div></div></div><div class="cfoot">📍 NRG Stadium, Houston</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP H · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇺🇾</span><div class="tn">Uruguay</div></div><div class="sb"><div class="vs">vs</div><div class="kt">10:00am</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇪🇸</span><div class="tn">Spain</div></div></div><div class="cfoot">📍 Estadio Akron, Guadalajara</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇪🇬</span><div class="tn">Egypt</div></div><div class="sb"><div class="vs">vs</div><div class="kt">1:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇮🇷</span><div class="tn">Iran</div></div></div><div class="cfoot">📍 Lumen Field, Seattle</div></div>
+    <div class="card upcoming"><div class="ctop"><span class="gt">GROUP G · MD3 ⚡ Simult.</span></div><div class="cbody"><div class="team"><span class="tf">🇳🇿</span><div class="tn">New Zealand</div></div><div class="sb"><div class="vs">vs</div><div class="kt">1:00pm</div><div class="st-time">QLD</div></div><div class="team"><span class="tf">🇧🇪</span><div class="tn">Belgium</div></div></div><div class="cfoot">📍 BC Place, Vancouver</div></div>
   </div>
 </div>
 
@@ -1061,6 +1101,11 @@
 <!-- ════ GROUP TABLES PANEL ════ -->
 <div id="groups" class="panel">
 <div class="groups-layout">
+<div class="qual-legend">
+  <div class="qual-legend-item"><div class="qual-legend-dot auto"></div> Qualified (Top 2 or confirmed best 3rd)</div>
+  <div class="qual-legend-item"><div class="qual-legend-dot third"></div> Possible best 3rd (not yet confirmed)</div>
+  <div class="qual-legend-item"><div class="qual-legend-dot elim"></div> Eliminated</div>
+</div>
 <div class="groups-grid">
 
   <!-- GROUP A -->
@@ -1093,22 +1138,22 @@
     <table class="gtable"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead><tbody>
           <tr class="qualify-auto"><td>1</td><td class="team-cell"><span class="tf-sm">🇧🇷</span>Brazil</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>1</td><td class="gd-pos">+6</td><td class="pts">7</td></tr>
           <tr class="qualify-auto"><td>2</td><td class="team-cell"><span class="tf-sm">🇲🇦</span>Morocco</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>3</td><td class="gd-pos">+3</td><td class="pts">7</td></tr>
-          <tr class="qualify-3rd"><td>3</td><td class="team-cell"><span class="tf-sm">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>Scotland</td><td>3</td><td>1</td><td>0</td><td>2</td><td>1</td><td>4</td><td class="gd-neg">−3</td><td class="pts">3</td></tr>
+          <tr><td>3</td><td class="team-cell"><span class="tf-sm">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>Scotland</td><td>3</td><td>1</td><td>0</td><td>2</td><td>1</td><td>4</td><td class="gd-neg">−3</td><td class="pts">3</td></tr>
           <tr><td>4</td><td class="team-cell"><span class="tf-sm">🇭🇹</span>Haiti</td><td>3</td><td>0</td><td>0</td><td>3</td><td>2</td><td>8</td><td class="gd-neg">−6</td><td class="pts">0</td></tr>
         </tbody></table>
-    <div class="qual-bar"><span class="qb qb-auto">Brazil 1st 7pts GD+6 · Morocco 2nd 7pts GD+3 · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland 3pts GD−3 😬 6th in 3rd-place table · Haiti 0pts ❌</span></div>
+    <div class="qual-bar"><span class="qb qb-auto">Brazil 1st 7pts GD+6 · Morocco 2nd 7pts GD+3 · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland 3pts GD−3 ❌ eliminated from best-3rd · Haiti 0pts ❌</span></div>
   </div>
 
   <!-- GROUP D — SOCCEROOS -->
   <div class="group-card has-results hl-group-aus">
-    <div class="group-hdr"><span class="group-name">Group D 🦘</span><span class="group-played">4 of 6 played</span></div>
+    <div class="group-hdr"><span class="group-name">Group D 🦘</span><span class="group-played">6 of 6 played</span></div>
     <table class="gtable"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead><tbody>
-          <tr class="qualify-auto"><td>1</td><td class="team-cell"><span class="tf-sm">🇺🇸</span>USA</td><td>2</td><td>2</td><td>0</td><td>0</td><td>6</td><td>1</td><td class="gd-pos">+5</td><td class="pts">6</td></tr>
-          <tr class="qualify-auto"><td>2</td><td class="team-cell"><span class="tf-sm">🇦🇺</span>Australia 🦘</td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td class="gd-zero">0</td><td class="pts">3</td></tr>
-          <tr class="qualify-3rd"><td>3</td><td class="team-cell"><span class="tf-sm">🇵🇾</span>Paraguay</td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>5</td><td class="gd-neg">−3</td><td class="pts">3</td></tr>
-          <tr><td>4</td><td class="team-cell"><span class="tf-sm">🇹🇷</span>Türkiye</td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>4</td><td class="gd-neg">−4</td><td class="pts">0</td></tr>
+          <tr class="qualify-auto"><td>1</td><td class="team-cell"><span class="tf-sm">🇺🇸</span>USA</td><td>3</td><td>2</td><td>0</td><td>1</td><td>8</td><td>3</td><td class="gd-pos">+5</td><td class="pts">6</td></tr>
+          <tr class="qualify-auto"><td>2</td><td class="team-cell"><span class="tf-sm">🇦🇺</span>Australia 🦘</td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td class="gd-zero">0</td><td class="pts">4</td></tr>
+          <tr class="qualify-3rd"><td>3</td><td class="team-cell"><span class="tf-sm">🇵🇾</span>Paraguay</td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>4</td><td class="gd-neg">−2</td><td class="pts">4</td></tr>
+          <tr><td>4</td><td class="team-cell"><span class="tf-sm">🇹🇷</span>Türkiye</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>5</td><td class="gd-neg">−2</td><td class="pts">3</td></tr>
         </tbody></table>
-    <div class="qual-bar"><span class="qb qb-auto">USA 6pts · 🦘 Australia 3pts · Paraguay 3pts · MD3 Fri 26 Jun</span></div>
+    <div class="qual-bar"><span class="qb qb-auto">🇺🇸 USA WIN 6pts! · 🦘 Australia 4pts through · Paraguay 4pts (best-3rd?) · Türkiye 3pts ❌</span></div>
   </div>
 
   <!-- GROUP E -->
@@ -1117,7 +1162,7 @@
     <table class="gtable"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead><tbody>
           <tr class="qualify-auto"><td>1</td><td class="team-cell"><span class="tf-sm">🇩🇪</span>Germany</td><td>3</td><td>2</td><td>0</td><td>1</td><td>10</td><td>4</td><td class="gd-pos">+6</td><td class="pts">6</td></tr>
           <tr class="qualify-auto"><td>2</td><td class="team-cell"><span class="tf-sm">🇨🇮</span>Ivory Coast</td><td>3</td><td>2</td><td>0</td><td>1</td><td>4</td><td>4</td><td class="gd-zero">0</td><td class="pts">6</td></tr>
-          <tr class="qualify-3rd"><td>3</td><td class="team-cell"><span class="tf-sm">🇪🇨</span>Ecuador</td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td class="gd-neg">−1</td><td class="pts">4</td></tr>
+          <tr class="qualify-auto"><td>3</td><td class="team-cell"><span class="tf-sm">🇪🇨</span>Ecuador</td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td class="gd-neg">−1</td><td class="pts">4</td></tr>
           <tr><td>4</td><td class="team-cell"><span class="tf-sm">🇨🇼</span>Curaçao</td><td>3</td><td>0</td><td>1</td><td>2</td><td>1</td><td>8</td><td class="gd-neg">−7</td><td class="pts">1</td></tr>
         </tbody></table>
     <div class="qual-bar"><span class="qb qb-auto">Germany &amp; Ivory Coast through 6pts · 🇪🇨 Ecuador 4pts (best 3rd!) · Curaçao 1pt ❌</span></div>
@@ -1334,21 +1379,8 @@
         <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div><div class="cf-match-row"><span class="cf-tn w">USA</span><div class="cf-sc"><span class="cf-score">2–0</span></div><span class="cf-tn r">Australia 🦘</span></div><div class="cf-detail">⚽ Burgess OG 11' (Balogun cross) · Freeman 43' (header) · Beach made 6 saves for AUS</div><div class="cf-cards">No cards · USA through to R32 with 6pts! Pulisic absent</div></div>
       <div class="cf-match"><div class="cf-match-date">Sat 20 Jun · 1:00pm <span class="cf-result-badge">FT</span>
         <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div><div class="cf-match-row"><span class="cf-tn">Türkiye</span><div class="cf-sc"><span class="cf-score">0–1</span></div><span class="cf-tn r">Paraguay</span></div><div class="cf-detail">⚽ Galarza 2' (Enciso assist) · 32 shots, 0 goals for TUR 😱 · PAR survived with 10 men</div><div class="cf-cards"><span class="cf-yc">▪ Galarza 4' (PAR)</span> · <span class="cf-rc">■ Almirón 45+3' (PAR)</span> · Türkiye ELIMINATED</div></div>
-      <div class="cf-match"><div class="cf-match-date">Fri 26 Jun · 2:00am ⚡</div><div class="cf-match-row"><span class="cf-tn">Türkiye</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">USA</span></div></div>
-    </div>
-      </div>
-  </div>
-
-  <!-- ══ GROUP C — SCOTLAND ══ -->
-  <div class="cf-col">
-    <div class="cf-col-hdr" style="background:#003f7f;border-left:4px solid #005EB8;"><span class="cf-group-name">Group C 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="cf-group-teams">BRA · MAR · SCO · HAI</span></div>
-    <table class="cf-mini-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>GD</th><th>Pts</th></tr></thead><tbody>
-<tr class="mt-q1"><td>1</td><td>🇧🇷 Brazil</td><td>3</td><td class="mt-gd-p">+6</td><td class="mt-pts">7</td></tr>
-<tr class="mt-q2"><td>2</td><td>🇲🇦 Morocco</td><td>3</td><td class="mt-gd-p">+3</td><td class="mt-pts">7</td></tr>
-<tr class="mt-3rd"><td>3</td><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</td><td>3</td><td class="mt-gd-n">−3</td><td class="mt-pts">3</td></tr>
-<tr class=""><td>4</td><td>🇭🇹 Haiti</td><td>3</td><td class="mt-gd-n">−6</td><td class="mt-pts">0</td></tr>
-</tbody></table>
-    <div class="cf-fixtures">
+      <div class="cf-match"><div class="cf-match-date">Fri 26 Jun · 12:00pm <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">Türkiye</span><div class="cf-sc"><span class="cf-score">3–2</span></div><span class="cf-tn r">USA</span></div><div class="cf-detail">⚽ Güler 10' · Kökçü 31' · Ayhan 98'! / ⚽ Trusty 3' · Berhalter 48' · Pulisic returns! 🤯 LAST KICK OF GAME!</div><div class="cf-cards">No cards · USA still WIN Group D — this result was meaningless · Türkiye ELIMINATED ❌</div>
+        <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
       <div class="cf-match"><div class="cf-match-date">Sat 13 Jun · 8:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn">Brazil</span><div class="cf-sc"><span class="cf-score">1–1</span></div><span class="cf-tn r">Morocco</span></div><div class="cf-detail">⚽ Raphinha 23' (BRA) / ⚽ Saibari (MAR assist Brahim Díaz)</div><div class="cf-cards">No cards</div>
         <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
       <div class="cf-match hl-sco"><div class="cf-match-date">Sat 13 Jun · 12:00pm <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div class="cf-sc"><span class="cf-score">1–0</span></div><span class="cf-tn r">Haiti</span></div><div class="cf-detail">⚽ McGinn 28' (rebound, Ché Adams chance) · Scotland 1st WC win since 1990!</div><div class="cf-cards">No cards</div>
@@ -1360,6 +1392,7 @@
       <div class="cf-match hl-sco"><div class="cf-match-date">Thu 25 Jun · 9:00am <span class="cf-today-badge">🔴 HT 0–2</span></div><div class="cf-match hl-sco"><div class="cf-match-date">Thu 25 Jun · 9:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn">Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><div class="cf-sc"><span class="cf-score">0–3</span></div><span class="cf-tn r">Brazil</span></div><div class="cf-detail">⚽ Vinícius Jr ×2 · Cunha 51' · Neymar debut 76' · Scotland 3pts GD-3 in nervous 3rd-place spot</div><div class="cf-cards">No cards either side</div>
         <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
       <div class="cf-match"><div class="cf-match-date">Thu 25 Jun · 9:00am <span class="cf-today-badge">🔴 HT 2–2</span></div><div class="cf-match-row"><span class="cf-tn w">Morocco</span><div class="cf-sc"><span class="cf-score" style="color:#FECC02;">2–2</span></div><span class="cf-tn r">Haiti</span></div><div class="cf-detail">⚽ El Kaabi · Hakimi (MAR) / ⚽ Joseph OG · Isidor (HAI) 🤯 Haiti 2 WC goals!</div></div>
+      </div>
     </div>
   </div>
 
@@ -1367,35 +1400,14 @@
   <div class="cf-col">
     <div class="cf-col-hdr" style="background:#00205B;border-left:4px solid #006633;"><span class="cf-group-name">Group D 🦘</span><span class="cf-group-teams">USA · AUS · PAR · TUR</span></div>
     <table class="cf-mini-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>GD</th><th>Pts</th></tr></thead><tbody>
-<tr class="mt-q1"><td>1</td><td>🇺🇸 USA</td><td>2</td><td class="mt-gd-p">+5</td><td class="mt-pts">6</td></tr>
-<tr class="mt-q2"><td>2</td><td>🇦🇺 Australia</td><td>2</td><td>0</td><td class="mt-pts">3</td></tr>
-<tr class="mt-3rd"><td>3</td><td>🇵🇾 Paraguay</td><td>2</td><td class="mt-gd-n">−3</td><td class="mt-pts">3</td></tr>
-<tr><td>4</td><td>🇹🇷 Türkiye</td><td>2</td><td class="mt-gd-n">−4</td><td class="mt-pts">0</td></tr>
+<tr class="mt-q1"><td>1</td><td>🇺🇸 USA</td><td>3</td><td class="mt-gd-p">+5</td><td class="mt-pts">6</td></tr>
+<tr class="mt-q2"><td>2</td><td>🇦🇺 Australia 🦘</td><td>3</td><td>0</td><td class="mt-pts">4</td></tr>
+<tr class="mt-3rd"><td>3</td><td>🇵🇾 Paraguay</td><td>3</td><td class="mt-gd-n">−2</td><td class="mt-pts">4</td></tr>
+<tr class=""><td>4</td><td>🇹🇷 Türkiye</td><td>3</td><td class="mt-gd-n">−2</td><td class="mt-pts">3</td></tr>
 </tbody></table>
     <div class="cf-fixtures">
-      <div class="cf-match"><div class="cf-match-date">Fri 12 Jun · 3:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">USA</span><div class="cf-sc"><span class="cf-score">4–1</span></div><span class="cf-tn r">Paraguay</span></div><div class="cf-detail">⚽ Balogun 21' · Pulisic 31' · Freeman 67' · Balogun 90+2' / ⚽ Almirón 85'</div><div class="cf-cards">No cards</div>
+      <div class="cf-match hl-aus"><div class="cf-match-date">Fri 26 Jun · 12:00pm <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn">Paraguay</span><div class="cf-sc"><span class="cf-score">0–0</span></div><span class="cf-tn r">Australia 🦘</span></div><div class="cf-detail">A 0-0 draw is enough! 🦘 AUSTRALIA THROUGH as Group D runner-up! Paraguay through as best-3rd candidate!</div><div class="cf-cards">No cards · Beach solid · AUS next: USA · PAR waits on best-3rd</div>
         <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
-      <div class="cf-match hl-aus"><div class="cf-match-date">Sat 13 Jun · 8:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">Australia 🦘</span><div class="cf-sc"><span class="cf-score">2–0</span></div><span class="cf-tn r">Türkiye</span></div><div class="cf-detail">⚽ Boyle 34' (Leckie assist) · Hrustic 61'(FK) · Australia brilliant!</div><div class="cf-cards">No cards</div>
-        <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
-      <div class="cf-match hl-aus"><div class="cf-match-date">Sat 20 Jun · 5:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">USA</span><div class="cf-sc"><span class="cf-score">2–0</span></div><span class="cf-tn r">Australia 🦘</span></div><div class="cf-detail">⚽ Burgess OG 11' · Freeman 43' · Beach 6 saves for AUS</div><div class="cf-cards">No cards</div>
-        <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
-      <div class="cf-match hl-aus"><div class="cf-match-date">Sat 20 Jun · 1:00pm <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn">Türkiye</span><div class="cf-sc"><span class="cf-score">0–1</span></div><span class="cf-tn r">Paraguay</span></div><div class="cf-detail">⚽ Galarza 2' (Enciso assist) · 32 shots, 0 goals for TUR 😱 · PAR held on with 10 men</div><div class="cf-cards"><span class="cf-yc">▪ Galarza 4'</span> <span class="cf-rc">■ Almirón 45+3' (PAR)</span> · Türkiye ELIMINATED</div>
-        <a class="cf-hl-link" href="https://www.sbs.com.au/sport/fifa-world-cup-2026" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
-      <div class="cf-match hl-aus"><div class="cf-match-date">Fri 26 Jun · 12:00pm ⚡ <span class="cf-today-badge">SBS 🦘</span></div><div class="cf-match-row"><span class="cf-tn">Türkiye</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">USA</span></div><div class="cf-detail">Rose Bowl, Los Angeles</div></div>
-      <div class="cf-match hl-aus"><div class="cf-match-date">Fri 26 Jun · 12:00pm ⚡ <span class="cf-today-badge">SBS 🦘</span></div><div class="cf-match-row"><span class="cf-tn">Paraguay</span><div class="cf-sc"><span class="cf-vs">vs</span></div><span class="cf-tn r">Australia 🦘</span></div><div class="cf-detail">Levi's Stadium, Santa Clara · SBS · HUGE MATCH!</div></div>
-    </div>
-  </div>
-
-<!-- ══ GROUP E ══ -->
-  <div class="cf-col">
-    <div class="cf-col-hdr"><span class="cf-group-name">Group E</span><span class="cf-group-teams">GER · ECU · CIV · CUW</span></div>
-    <table class="cf-mini-table"><thead><tr><th>#</th><th>Team</th><th>P</th><th>GD</th><th>Pts</th></tr></thead><tbody>
-<tr class="mt-q1"><td>1</td><td>🇩🇪 Germany</td><td>3</td><td class="mt-gd-p">+7</td><td class="mt-pts">7</td></tr>
-<tr class="mt-q2"><td>2</td><td>🇨🇮 Ivory Coast</td><td>3</td><td class="mt-gd-p">+1</td><td class="mt-pts">6</td></tr>
-<tr class="mt-3rd"><td>3</td><td>🇪🇨 Ecuador</td><td>3</td><td class="mt-gd-n">−1</td><td class="mt-pts">4</td></tr>
-<tr><td>4</td><td>🇨🇼 Curaçao</td><td>3</td><td class="mt-gd-n">−7</td><td class="mt-pts">1</td></tr>
-</tbody></table>
-    <div class="cf-fixtures">
       <div class="cf-match"><div class="cf-match-date">Sun 14 Jun · 3:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">Germany</span><div class="cf-sc"><span class="cf-score">7–1</span></div><span class="cf-tn r">Curaçao</span></div><div class="cf-detail">⚽ Nmecha 6' · Schlotterbeck · Havertz pen · Füllkrug · Wirtz · Musiala · Gnabry / ⚽ Comenencia 🇨🇼 WC debut!</div><div class="cf-cards">No red cards</div>
         <a class="cf-hl-link" href="https://youtu.be/KQfOSILRiLM" target="_blank" rel="noopener">▶&nbsp;SBS Highlights</a></div>
       <div class="cf-match"><div class="cf-match-date">Sun 14 Jun · 6:00am <span class="cf-result-badge">FT</span></div><div class="cf-match-row"><span class="cf-tn w">Ivory Coast</span><div class="cf-sc"><span class="cf-score">1–0</span></div><span class="cf-tn r">Ecuador</span></div><div class="cf-detail">⚽ A. Diallo 90' (chip, assist Singo) · What a finish! Ecuador 0 shots on target · CIV 3pts!</div><div class="cf-cards">No cards</div>
@@ -1567,7 +1579,7 @@
     <div class="cf-key-item"><div class="cf-key-swatch" style="background:rgba(68,136,221,0.18);border-left:3px solid #4488dd;"></div><span>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</span></div>
     <div class="cf-key-item"><div class="cf-key-swatch" style="background:rgba(0,106,167,0.18);border-left:3px solid #006AA7;"></div><span>🇸🇪 Sweden</span></div>
     <div class="cf-key-item"><span class="cf-rc" style="font-size:10px;">■</span>&nbsp;Red card &nbsp;<span class="cf-yc" style="font-size:10px;">▪</span>&nbsp;Yellow card &nbsp;★ Defending champions (Argentina)</div>
-    <div class="cf-key-item" style="margin-left:auto;color:rgba(26,31,46,0.35);">All times QLD/AEST · Source: SBS Sport Official Broadcast Schedule · Updated Thu 18 Jun 2026</div>
+    <div class="cf-key-item" style="margin-left:auto;color:rgba(26,31,46,0.35);">All times QLD/AEST · Source: SBS Sport Official Broadcast Schedule · Updated Fri 26 Jun 2026</div>
   </div>
 
 </div><!-- /cf-wrap -->
@@ -1641,8 +1653,8 @@
       <div class="wc-grp-hdr"><span class="wc-grp-name">Group D 🦘</span><span class="wc-grp-md">4/6</span></div>
       <div class="wc-grp-team gq"><div class="wc-grp-pos">1</div><div class="wc-grp-flag">🇺🇸</div><div class="wc-grp-tname">USA</div><div class="wc-grp-pts">6</div></div>
       <div class="wc-grp-team gq"><div class="wc-grp-pos">2</div><div class="wc-grp-flag">🇦🇺</div><div class="wc-grp-tname">Australia 🦘</div><div class="wc-grp-pts">3</div></div>
-      <div class="wc-grp-team"><div class="wc-grp-pos">4</div><div class="wc-grp-flag">🇹🇷</div><div class="wc-grp-tname">Türkiye</div><div class="wc-grp-pts">0</div></div>
-      <div class="wc-grp-team gq"><div class="wc-grp-pos">3</div><div class="wc-grp-flag">🇵🇾</div><div class="wc-grp-tname">Paraguay</div><div class="wc-grp-pts">3</div></div>
+      <div class="wc-grp-team"><div class="wc-grp-pos">4</div><div class="wc-grp-flag">🇹🇷</div><div class="wc-grp-tname">Türkiye</div><div class="wc-grp-pts">3</div></div>
+      <div class="wc-grp-team gq"><div class="wc-grp-pos">3</div><div class="wc-grp-flag">🇵🇾</div><div class="wc-grp-tname">Paraguay</div><div class="wc-grp-pts">4</div></div>
       <div class="wc-grp-results">
         <div class="wc-grp-result"><span class="wc-gr-h">USA</span><span class="wc-gr-s">4–1</span><span class="wc-gr-a">Paraguay</span><span class="wc-gr-d">Sat 13</span></div>
         <div class="wc-grp-result"><span class="wc-gr-h">Australia 🦘</span><span class="wc-gr-s">2–0</span><span class="wc-gr-a">Türkiye</span><span class="wc-gr-d">Sun 14</span></div>
@@ -1688,23 +1700,23 @@
     <!-- R32 LEFT col 1 -->
     <div class="wc-bk-round">
       <div class="wc-bk-label">Round of 32<br>Jun 28–Jul 3</div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1A v 3rd · Sun 28</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1B v 2C · Mon 29</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1C v 3rd · Tue 30</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1D v 2E · Wed 1 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2B v 3rd · Thu 2 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2D v 2F · Fri 3 Jul</div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇿🇦 S. Africa<br>v 🇨🇦 Canada<br><span class="wc-bk-time">5am Mon 29 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇧🇷 Brazil<br>v 🇯🇵 Japan<br><span class="wc-bk-time">3am Tue 30 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇳🇱 Netherlands<br>v 🇲🇦 Morocco<br><span class="wc-bk-time">11am Wed 1 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇺🇸 USA<br>v 🇧🇦 Bosnia<br><span class="wc-bk-time">10am Thu 2 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇸🇮 Winner H<br>v Runner-up J<br><span class="wc-bk-time">5am Fri 3 QLD</span></div></div>
+      <div class="wc-bk-slot bk-aus"><div class="wc-bk-match">🦘 Australia<br>v Runner-up G<br><span class="wc-bk-time">4am Sat 4 QLD</span></div></div>
     </div>
 
     <!-- R32 LEFT col 2 -->
     <div class="wc-bk-round">
       <div class="wc-bk-label">Round of 32 cont.</div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1E v 3rd · Sun 28</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1F v 2G · Mon 29</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1G v 3rd · Tue 30</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1H v 2I · Wed 1 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2H v 2J · Thu 2 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2L v 3rd · Fri 3 Jul</div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇩🇪 Germany<br>v Best 3rd<br><span class="wc-bk-time">6:30am Tue 30 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇨🇮 Ivory Coast<br>v Runner-up I<br><span class="wc-bk-time">3am Wed 1 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Winner I<br>v Best 3rd<br><span class="wc-bk-time">7am Wed 1 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇲🇽 Mexico<br>v Best 3rd<br><span class="wc-bk-time">11am Thu 2 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Runner-up K<br>v Runner-up L<br><span class="wc-bk-time">9am Fri 3 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇨🇭 Switzerland<br>v Best 3rd<br><span class="wc-bk-time">1pm Fri 3 QLD</span></div></div>
     </div>
 
     <!-- R16 LEFT -->
@@ -1764,12 +1776,12 @@
     <!-- R32 RIGHT col 1 -->
     <div class="wc-bk-round">
       <div class="wc-bk-label">Round of 32 cont.</div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1I v 3rd · Sun 28</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1J v 2K · Mon 29</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1K v 3rd · Tue 30</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1L v 2A · Wed 1 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2I v 3rd · Thu 2 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2K v 3rd · Fri 3 Jul</div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Winner I<br>v Best 3rd<br><span class="wc-bk-time">7am Wed 1 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">🇦🇷 Argentina<br>v Runner-up H<br><span class="wc-bk-time">8am Fri 3 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Winner K<br>v Best 3rd<br><span class="wc-bk-time">11:30am Sat 4 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Winner L<br>v Best 3rd<br><span class="wc-bk-time">2am Thu 2 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Winner G<br>v Best 3rd<br><span class="wc-bk-time">6am Thu 2 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Winner H<br>v Runner-up J<br><span class="wc-bk-time">5am Fri 3 QLD</span></div></div>
     </div>
 
     <!-- R32 RIGHT col 2 -->
@@ -1777,9 +1789,9 @@
       <div class="wc-bk-label">Round of 32<br>Jun 28–Jul 3</div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1I v 3rd · Sun 28</div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">1J v 2K · Mon 29</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2B v 3rd · Tue 30</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2D v 2F · Wed 1 Jul</div></div>
-      <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2H v 2J · Thu 2 Jul</div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Runner-up K<br>v Runner-up L<br><span class="wc-bk-time">9am Fri 3 QLD</span></div></div>
+      <div class="wc-bk-slot bk-aus"><div class="wc-bk-match">🦘 Australia<br>v Runner-up G<br><span class="wc-bk-time">4am Sat 4 QLD</span></div></div>
+      <div class="wc-bk-slot bk-confirmed"><div class="wc-bk-match">Runner-up H<br>v Runner-up J<br><span class="wc-bk-time">5am Fri 3 QLD</span></div></div>
       <div class="wc-bk-slot bk-tbd"><div class="wc-bk-tbd-label">2L v 3rd · Fri 3 Jul</div></div>
     </div>
 
@@ -1882,7 +1894,7 @@
     <div class="wc-pf-item"><div class="wc-pf-dot" style="background:rgba(68,136,221,0.2);border:1px solid #4488dd;"></div>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div>
     <div class="wc-pf-item"><div class="wc-pf-dot" style="background:rgba(0,106,167,0.2);border:1px solid #006AA7;"></div>🇸🇪 Sweden</div>
     <div class="wc-pf-item">★ Defending champions (Argentina)</div>
-    <div style="margin-left:auto;">All times QLD/AEST (UTC+10) · Sources: SBS Sport &amp; FIFA.com · Updated Thu 18 Jun 2026</div>
+    <div style="margin-left:auto;">All times QLD/AEST (UTC+10) · Sources: SBS Sport &amp; FIFA.com · Updated Fri 26 Jun 2026</div>
   </div>
 
 </div><!-- /wc-poster -->
@@ -1890,6 +1902,24 @@
 
 
 <script>
+function toggleCompletedDays(btn) {
+  var days = Array.from(document.querySelectorAll('#schedule .content .day-section'));
+  // Find the first day that has a today-pill OR has no completed-badge (i.e. today or future)
+  var todayIdx = days.findIndex(function(d) {
+    return d.querySelector('.today-pill') !== null || d.querySelector('.day-completed-badge') === null;
+  });
+  if (todayIdx < 0) todayIdx = days.length;
+  var hiding = btn.dataset.hiding !== 'true';
+  btn.dataset.hiding = hiding ? 'true' : 'false';
+  btn.textContent = hiding ? '⬇ Show previous days' : '⬆ Hide previous days';
+  days.forEach(function(d, i) {
+    if (i < todayIdx) d.style.display = hiding ? 'none' : '';
+  });
+  if (hiding && days[todayIdx]) {
+    days[todayIdx].scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
 function showTab(id, el) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
